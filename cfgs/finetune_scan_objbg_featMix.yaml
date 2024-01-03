@@ -1,0 +1,40 @@
+optimizer : {
+  type: AdamW,
+  kwargs: {
+  lr : 0.0005,
+  weight_decay : 0.05
+}}
+
+scheduler: {
+  type: CosLR,
+  kwargs: {
+    epochs: 300,
+    initial_epochs : 10
+}}
+
+dataset : {
+  train : { _base_: cfgs/dataset_configs/ScanObjectNN_objectbg_featMix.yaml,
+            others: {subset: 'train', n_sample: 2}},
+  val : { _base_: cfgs/dataset_configs/ScanObjectNN_objectbg_featMix.yaml,
+            others: {subset: 'test', n_sample: 1}},
+  test : { _base_: cfgs/dataset_configs/ScanObjectNN_objectbg_featMix.yaml,
+            others: {subset: 'test', n_sample: 1}}}
+model : {
+  NAME: PointTransformer_featMix,
+  trans_dim: 384,
+  depth: 12,
+  drop_path_rate: 0.1,
+  cls_dim: 15,
+  num_heads: 6,
+  group_size: 32,
+  num_group: 128,
+  encoder_dims: 384,
+  n_sample: 2
+}
+
+
+npoints: 2048
+total_bs : 64
+step_per_update : 1
+max_epoch : 300
+grad_norm_clip : 10
