@@ -3,9 +3,9 @@
 This repository provides the official implementation of **Locate while Reconstructing with Masked Autoencoders for Point Cloud Self-supervised Learning**.
 
 ## 1. Introduction
+![img2.jpg](figure/model.jpg)
 
 As an efficient self-supervised pre-training approach, Masked autoencoder (MAE) has shown promising improvement across various 3D point cloud understanding tasks. However, the pretext task of existing point-based MAE is to reconstruct the geometry of masked points only, hence it learns features at lower semantic levels which is not appropriate for high-level downstream tasks. To address this challenge, we propose a novel self-supervised approach named Locate while Reconstructing with Masked Autoencoders (LR-MAE). Specifically, a multi-head decoder is designed to simultaneously localize the global position of masked patches while reconstructing masked points, aimed at learning better semantic features that align with downstream tasks. Moreover, we design a random query patch detection strategy for 3D object detection tasks in the pre-training stage, which significantly boosts the model performance with faster convergence speed. Extensive experiments show that our LR-MAE achieves superior performance on various point cloud understanding tasks. By fine-tuning on downstream datasets, LR-MAE outperforms the Point-MAE baseline by 3.65% classification accuracy  on the ScanObjectNN dataset, and significantly exceeds the 3DETR baseline by 6.1\% $AP_{50}$ on the ScanNetV2 dataset.
-![img2.jpg](figure/model.jpg)
 
 ## 2. Preparation
 Our code is tested with PyTorch 1.8.0, CUDA 11.1 and Python 3.7.0. 
