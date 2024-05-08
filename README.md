@@ -24,9 +24,15 @@ python setup.py install --user
 
 # PointNet++
 pip install "git+https://github.com/erikwijmans/Pointnet2_PyTorch.git#egg=pointnet2_ops&subdirectory=pointnet2_ops_lib"
+# if failed, you can try
+git clone git@github.com/erikwijmans/Pointnet2_PyTorch.git
+pip install pointnet2_ops_lib/.
+
 
 # GPU kNN
 pip install --upgrade https://github.com/unlimblue/KNN_CUDA/releases/download/0.2/KNN_CUDA-0.2-py3-none-any.whl
+# if failed, you can try
+pip install KNN_CUDA-0.2-py3-none-any.whl -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 Optionally, you can install a Cythonized implementation of gIOU for faster training.
 ```
